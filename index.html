@@ -1,0 +1,375 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Vici Play - GoldHEN PS4</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+        }
+        body {
+            background-color: #ffffff;
+            color: #111111;
+            overflow-x: hidden;
+            -webkit-font-smoothing: antialiased;
+        }
+        header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 25px 60px;
+        }
+        .logo-area {
+            display: flex;
+            flex-direction: column;
+            align-items: flex-start;
+        }
+        .logo-top {
+            display: flex;
+            align-items: flex-end;
+            gap: 4px;
+        }
+        .logo-v-play {
+            font-size: 32px;
+            font-weight: 900;
+            letter-spacing: -1.5px;
+            color: #111;
+            line-height: 0.9;
+        }
+        .logo-vici {
+            font-size: 16px;
+            font-weight: 800;
+            letter-spacing: 4px;
+            color: #111;
+            margin-left: 2px;
+        }
+        .logo-badge {
+            background: #111;
+            color: #fff;
+            font-size: 7px;
+            font-weight: 700;
+            padding: 2px 6px;
+            border-radius: 4px;
+            letter-spacing: 1px;
+            text-transform: uppercase;
+            margin-top: 4px;
+            display: inline-block;
+        }
+        nav {
+            display: flex;
+            gap: 35px;
+            font-size: 14px;
+            font-weight: 500;
+        }
+        nav a {
+            text-decoration: none;
+            color: #777777;
+            position: relative;
+            padding-bottom: 4px;
+        }
+        nav a.active {
+            color: #111111;
+            font-weight: 600;
+        }
+        .ps4-badge {
+            border: 1px solid #e0e0e0;
+            padding: 6px 16px;
+            border-radius: 20px;
+            font-size: 13px;
+            font-weight: 600;
+            display: flex;
+            align-items: center;
+            gap: 6px;
+            color: #111111;
+            text-decoration: none;
+        }
+        .hero {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 30px 60px 70px 60px;
+            max-width: 1300px;
+            margin: 0 auto;
+        }
+        .hero-content {
+            max-width: 520px;
+        }
+        .hero-tag {
+            font-size: 11px;
+            font-weight: 700;
+            letter-spacing: 2px;
+            color: #888888;
+            text-transform: uppercase;
+            margin-bottom: 12px;
+        }
+        .hero h1 {
+            font-size: 52px;
+            line-height: 1.08;
+            font-weight: 800;
+            color: #111111;
+            margin-bottom: 20px;
+            letter-spacing: -1px;
+        }
+        .hero h1 span {
+            color: #8c8c8c;
+        }
+        .hero p {
+            font-size: 15px;
+            color: #666666;
+            line-height: 1.5;
+            margin-bottom: 30px;
+        }
+        .btn-launch {
+            background-color: #111111;
+            color: #ffffff;
+            padding: 15px 30px;
+            border-radius: 30px;
+            font-size: 14px;
+            font-weight: 600;
+            border: none;
+            cursor: pointer;
+            display: inline-flex;
+            align-items: center;
+            gap: 12px;
+            text-decoration: none;
+            box-shadow: 0 10px 25px rgba(0,0,0,0.12);
+            transition: background-color 0.2s;
+        }
+        .btn-launch:hover {
+            background-color: #333333;
+        }
+        .features-inline {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            margin-top: 30px;
+            font-size: 13px;
+            color: #666666;
+            font-weight: 500;
+        }
+        .dot {
+            width: 3px;
+            height: 3px;
+            background-color: #cccccc;
+            border-radius: 50%;
+        }
+        .hero-image img {
+            max-width: 500px;
+            width: 100%;
+            height: auto;
+        }
+        .features-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            border-top: 1px solid #eaeaea;
+            border-bottom: 1px solid #eaeaea;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+        .feature-item {
+            padding: 45px 25px;
+            text-align: center;
+            border-right: 1px solid #eaeaea;
+        }
+        .feature-item:last-child {
+            border-right: none;
+        }
+        .feature-icon {
+            font-size: 22px;
+            margin-bottom: 15px;
+            color: #111;
+        }
+        .feature-item h3 {
+            font-size: 14px;
+            font-weight: 700;
+            color: #111111;
+            margin-bottom: 6px;
+        }
+        .feature-item p {
+            font-size: 12px;
+            color: #777777;
+            line-height: 1.4;
+        }
+        .how-it-works {
+            text-align: center;
+            padding: 90px 20px 110px 20px;
+            max-width: 900px;
+            margin: 0 auto;
+        }
+        .how-tag {
+            font-size: 10px;
+            font-weight: 700;
+            letter-spacing: 2px;
+            color: #888888;
+            text-transform: uppercase;
+            margin-bottom: 10px;
+        }
+        .how-it-works h2 {
+            font-size: 34px;
+            font-weight: 800;
+            color: #111111;
+            margin-bottom: 12px;
+        }
+        .how-it-works p {
+            font-size: 14px;
+            color: #666666;
+            max-width: 500px;
+            margin: 0 auto 35px auto;
+            line-height: 1.5;
+        }
+        .steps-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            max-width: 750px;
+            margin: 60px auto 0 auto;
+            position: relative;
+        }
+        .steps-container::before {
+            content: '';
+            position: absolute;
+            top: 15px;
+            left: 40px;
+            right: 40px;
+            height: 1px;
+            background-color: #dddddd;
+            z-index: 1;
+        }
+        .step {
+            position: relative;
+            z-index: 2;
+            text-align: center;
+            flex: 1;
+        }
+        .step-num {
+            width: 32px;
+            height: 32px;
+            background-color: #ffffff;
+            border: 1.5px solid #cccccc;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 12px;
+            font-weight: 700;
+            color: #555555;
+            margin: 0 auto 10px auto;
+        }
+        .step.active .step-num {
+            border-color: #111111;
+            background-color: #111111;
+            color: #ffffff;
+        }
+        .step-text {
+            font-size: 12px;
+            color: #666666;
+            font-weight: 600;
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <div class="logo-area">
+            <div class="logo-top">
+                <span class="logo-v-play">✓PLAY</span>
+                <span class="logo-vici">ICI</span>
+            </div>
+            <div class="logo-badge">Master The Game</div>
+        </div>
+        <nav>
+            <a href="#" class="active">Home</a>
+            <a href="#">Features</a>
+            <a href="#">Guide</a>
+            <a href="#">FAQ</a>
+        </nav>
+        <a href="#" class="ps4-badge">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M19.5 9.5h-3.8l2.2-4.5c.3-.6-.1-1.3-.8-1.3h-3.4c-.4 0-.8.2-1 .6L9.8 12H6c-.6 0-1 .4-1 1s.4 1 1 1h3.3l-1.3 2.7c-.3.6.1 1.3.8 1.3h3.5c.4 0 .8-.2 1-.6l2.9-6h2.3c.6 0 1-.4 1-1s-.4-1-1-1z"/></svg>
+            PS4
+        </a>
+    </header>
+
+    <section class="hero">
+        <div class="hero-content">
+            <div class="hero-tag">GOLDHEN PS4</div>
+            <h1>Unleash Your<br><span>PS4 Freedom</span></h1>
+            <p>GoldHEN is a powerful and easy-to-use jailbreak for PS4. Take control of your console, run homebrew, install games and much more — all in one click.</p>
+            <button class="btn-launch" onclick="triggerExploit()">
+                <span>Launch GoldHEN</span>
+                <span>→</span>
+            </button>
+            <div class="features-inline">
+                <span>🛡 Safe</span> <div class="dot"></div>
+                <span>⚡ Simple</span> <div class="dot"></div>
+                <span>🚀 Fast</span>
+            </div>
+        </div>
+        <div class="hero-image">
+            <div style="width:450px; height:320px; background:#f5f5f7; border-radius:24px; display:flex; align-items:center; justify-content:center; color:#888; font-weight:600;">PS4 Console Mockup</div>
+        </div>
+    </section>
+
+    <div class="features-grid">
+        <div class="feature-item">
+            <div class="feature-icon">🎮</div>
+            <h3>Play Homebrew</h3>
+            <p>Run your favorite homebrew apps and utilities.</p>
+        </div>
+        <div class="feature-item">
+            <div class="feature-icon">📦</div>
+            <h3>Install Custom Games</h3>
+            <p>Backup, install and play PKG games.</p>
+        </div>
+        <div class="feature-item">
+            <div class="feature-icon">⚙️</div>
+            <h3>Full System Access</h3>
+            <p>Take control of your PS4 like never before.</p>
+        </div>
+        <div class="feature-item">
+            <div class="feature-icon">⚡</div>
+            <h3>Easy & Fast</h3>
+            <p>One click and you're ready to go.</p>
+        </div>
+    </div>
+
+    <section class="how-it-works">
+        <div class="how-tag">HOW IT WORKS</div>
+        <h2>Just One Click</h2>
+        <p>Launching GoldHEN is simple. Click the button below and follow the on-screen instructions. It's fast, safe and beginner friendly.</p>
+        <button class="btn-launch" onclick="triggerExploit()">
+            <span>Launch GoldHEN</span>
+            <span>→</span>
+        </button>
+        
+        <div class="steps-container">
+            <div class="step active">
+                <div class="step-num">1</div>
+                <div class="step-text">Click Launch</div>
+            </div>
+            <div class="step">
+                <div class="step-num">2</div>
+                <div class="step-text">Follow Instructions</div>
+            </div>
+            <div class="step">
+                <div class="step-num">3</div>
+                <div class="step-text">Jailbreak Your PS4</div>
+            </div>
+            <div class="step">
+                <div class="step-num">4</div>
+                <div class="step-text">Enjoy Freedom</div>
+            </div>
+        </div>
+    </section>
+
+    <script>
+        function triggerExploit() {
+            // توجيه المتصفح لتحميل الثغرة الفعلية مباشرة من الاستضافة المعتمدة
+            window.location.href = "https://gamerhack.github.io/g2all/index.html";
+        }
+    </script>
+</body>
+</html>
